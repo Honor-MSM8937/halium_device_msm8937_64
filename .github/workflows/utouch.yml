@@ -37,6 +37,23 @@ jobs:
       - name: Start build
         run: |
             bash ./build.sh
+
+      - name: Repartition boot
+        run: RAMDISK_IMAGE= "https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/RAMDISK.img" KERNEL_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/kernel.win" BOOT_IMAGE="./out/boot.img" ./build/repartition-boot.sh 
+
+      - name: Upload repartitioned images
+      - run: echo Upload ramdisk.img...
+      - uses: actions/upload-artifact@v2
+        with:
+           name: ramdisk.img
+           path: target/ramdisk.img
+
+      - name: Upload repartitioned images
+      - run: echo Upload kernel.img...
+      - uses: actions/upload-artifact@v2
+        with:
+           name: kernel.img
+           path: target/kernel.img
         
       - name: Pre-OTA
         run: |
@@ -45,7 +62,7 @@ jobs:
             
       - name: Prepare OTA
         run: ./build/prepare-fake-ota.sh out/device_$DEVICE.tar.xz ota && mkdir -p out && ./build/system-image-from-ota.sh ota/ubuntu_command out
-        
+            
       - run: |
             echo Build Complete!
       - uses: actions/upload-artifact@v2
