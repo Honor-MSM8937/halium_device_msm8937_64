@@ -39,7 +39,7 @@ jobs:
             bash ./build.sh
 
       - name: Repartition boot
-        run: export RAMDISK_IMAGE= "https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/RAMDISK.img" && export KERNEL_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/kernel.win" && export BOOT_IMAGE="./out/boot.img" && ./build/repartition-boot.sh 
+        run: export RAMDISK_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/RAMDISK.img" && export KERNEL_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/kernel.win" && export BOOT_IMAGE="./out/boot.img" && ./build/repartition-boot.sh 
 
       - name: Upload repartitioned images
         uses: actions/upload-artifact@v2
