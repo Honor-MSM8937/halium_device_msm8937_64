@@ -28,7 +28,7 @@ echo "-> Repacking kernel.img..."
 sh cleanup.sh && sh unpackimg.sh ./kernel.img
 
 cp ../target/split_img/boot.img-cmdline ./split_img/kernel.img-cmdline # Installing our options and kernel
-cp ../target/split_img/boot.img-kernel ./split_img/boot.img-kernel 
+cp ../target/split_img/boot.img-kernel ./split_img/kernel.img-kernel 
 sh repackimg.sh && mv image-new.img ../target/kernel.img
 sh cleanup.sh && rm -rf ../target/split_img ../target/ramdisk
 cd ..
