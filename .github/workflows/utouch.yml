@@ -42,15 +42,13 @@ jobs:
         run: RAMDISK_IMAGE= "https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/RAMDISK.img" KERNEL_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/kernel.win" BOOT_IMAGE="./out/boot.img" ./build/repartition-boot.sh 
 
       - name: Upload repartitioned images
-      - run: echo Upload ramdisk.img...
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
            name: ramdisk.img
            path: target/ramdisk.img
 
       - name: Upload repartitioned images
-      - run: echo Upload kernel.img...
-      - uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v2
         with:
            name: kernel.img
            path: target/kernel.img
