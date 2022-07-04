@@ -10,7 +10,7 @@ git clone https://github.com/SebaUbuntu/AIK-Linux-mirror aik-linux
 cd aik-linux
 
 echo "-> Getting test images..."
-wget -O ramdisk.img $RAMDISK_IMAGE && wget -O kernel.img $KERNEL_IMAGE && wget -O boot.img $BOOT_IMAGE
+wget -O ramdisk.img $RAMDISK_IMAGE && wget -O kernel.img $KERNEL_IMAGE
 
 echo "-> Unpacking boot image..."
 sh unpackimg.sh $BOOT_IMAGE
