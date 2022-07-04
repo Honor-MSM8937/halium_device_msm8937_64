@@ -51,6 +51,9 @@ cd "$TMPDOWN"
     fi
     [ -d gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf ] && wget https://releases.linaro.org/components/toolchain/binaries/latest-5/arm-linux-gnueabihf/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz && tar -xf gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz
     GCC_ARM32_PATH="$TMPDOWN/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf"
+    
+    ls $GCC_ARM32_PATH $GCC_PATH
+    ls
 
     KERNEL_DIR="$(basename "${deviceinfo_kernel_source}")"
     KERNEL_DIR="${KERNEL_DIR%.*}"
