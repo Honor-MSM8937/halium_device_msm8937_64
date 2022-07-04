@@ -13,7 +13,8 @@ echo "-> Getting test images..."
 wget -O ramdisk.img $RAMDISK_IMAGE && wget -O kernel.img $KERNEL_IMAGE
 
 echo "-> Unpacking boot image..."
-sh unpackimg.sh $BOOT_IMAGE
+cp $BOOT_IMAGE ./boot.img
+sh unpackimg.sh ./boot.img
 mkdir ../target && mv ramdisk split_img ../target 
 
 echo "-> Repacking ramdisk.img..."
