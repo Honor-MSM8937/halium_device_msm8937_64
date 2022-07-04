@@ -43,13 +43,13 @@ case $deviceinfo_arch in
 esac
 
 cd "$TMPDOWN"
-    [ -d gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf ] && wget https://releases.linaro.org/components/toolchain/binaries/latest-5/aarch64-elf/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf.tar.xz && tar -xf gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf.tar.xz 
+    wget https://releases.linaro.org/components/toolchain/binaries/latest-5/aarch64-elf/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf.tar.xz && tar -xf gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf.tar.xz 
     GCC_PATH="$TMPDOWN/gcc-linaro-5.5.0-2017.10-x86_64_aarch64-elf"
     if [ -n "$deviceinfo_kernel_clang_compile" ] && $deviceinfo_kernel_clang_compile; then
         [ -d linux-x86 ] || git clone https://github.com/crdroidandroid/android_prebuilts_clang_host_linux-x86_clang-6875598 -b 10.0 --depth=1 linux-x86
         CLANG_PATH="$TMPDOWN/linux-x86"
     fi
-    [ -d gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf ] && wget https://releases.linaro.org/components/toolchain/binaries/latest-5/arm-linux-gnueabihf/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz && tar -xf gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz
+    wget https://releases.linaro.org/components/toolchain/binaries/latest-5/arm-linux-gnueabihf/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz && tar -xf gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf.tar.xz
     GCC_ARM32_PATH="$TMPDOWN/gcc-linaro-5.5.0-2017.10-x86_64_arm-linux-gnueabihf"
     
     ls $GCC_ARM32_PATH $GCC_PATH
