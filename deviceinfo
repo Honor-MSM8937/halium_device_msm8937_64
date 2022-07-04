@@ -4,7 +4,7 @@ deviceinfo_codename="msm8937_64"
 deviceinfo_arch="aarch64"
 deviceinfo_os_version="8.0.0"
 deviceinfo_os_patch_level="2019-11"
-deviceinfo_kernel_source="https://github.com/Honor-MSM8937/kernel_huawei_msm8937/"
+deviceinfo_kernel_source="https://github.com/Honor-MSM8937/kernel_huawei_msm8937"
 deviceinfo_kernel_source_branch="halium-9.0"
 deviceinfo_kernel_defconfig="halium_msm8937_defconfig"
 
