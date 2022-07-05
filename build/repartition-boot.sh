@@ -15,13 +15,13 @@ wget -O ramdisk.img $RAMDISK_IMAGE && wget -O kernel.img $KERNEL_IMAGE
 echo "-> Unpacking boot image..."
 cp $BOOT_IMAGE ./boot.img
 bash unpackimg.sh ./boot.img
-mkdir ../target && mv ramdisk split_img ../target 
+mkdir ../target && sudo mv ramdisk split_img ../target 
 
 echo "-> Repacking ramdisk.img..."
 bash cleanup.sh && bash unpackimg.sh ./ramdisk.img # Unpacking ramdisk
 
 cp ../target/split_img/boot.img-cmdline ./split_img/ramdisk.img-cmdline # Installing our options and ramdisk
-rm -rf ./ramdisk && cp ../target/ramdisk ./ramdisk -r 
+rm -rf ./ramdisk && sudo cp ../target/ramdisk ./ramdisk -r 
 bash repackimg.sh && mv image-new.img ../target/ramdisk.img
 sh cleanup.sh
 
