@@ -21,9 +21,9 @@ echo "-> Repacking ramdisk.img..."
 bash cleanup.sh && bash unpackimg.sh ./ramdisk.img # Unpacking ramdisk
 
 cp ../target/split_img/boot.img-cmdline ./split_img/ramdisk.img-cmdline # Installing our options and ramdisk
-rm -rf ./ramdisk && sudo cp ../target/ramdisk ./ramdisk -r 
+sudo rm -rf ./ramdisk && sudo cp ../target/ramdisk ./ramdisk -r 
 bash repackimg.sh && mv image-new.img ../target/ramdisk.img
-sh cleanup.sh
+sudo rm -rf ./ramdisk && bash cleanup.sh
 
 echo "-> Repacking kernel.img..."
 bash cleanup.sh && bash unpackimg.sh ./kernel.img
@@ -31,7 +31,7 @@ bash cleanup.sh && bash unpackimg.sh ./kernel.img
 cp ../target/split_img/boot.img-cmdline ./split_img/kernel.img-cmdline # Installing our options and kernel
 cp ../target/split_img/boot.img-kernel ./split_img/kernel.img-kernel 
 bash repackimg.sh && mv image-new.img ../target/kernel.img
-bash cleanup.sh && rm -rf ../target/split_img ../target/ramdisk
+bash cleanup.sh && sudo rm -rf ../target/split_img ../target/ramdisk
 cd ..
 
 echo "> Done; Uploading images..."
