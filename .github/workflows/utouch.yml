@@ -38,21 +38,6 @@ jobs:
         run: |
             bash ./build.sh
 
-      - name: Repartition boot
-        run: export RAMDISK_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/RAMDISK.img" && export KERNEL_IMAGE="https://gitlab.com/KrutosVIP/imgbuild-h7ap/-/raw/main/kernel.win" && export BOOT_IMAGE="../out/boot.img" && bash ./build/repartition-boot.sh 
-
-      - name: Upload repartitioned images
-        uses: actions/upload-artifact@v2
-        with:
-           name: ramdisk.img
-           path: target/ramdisk.img
-
-      - name: Upload repartitioned images
-        uses: actions/upload-artifact@v2
-        with:
-           name: kernel.img
-           path: target/kernel.img
-        
       - name: Pre-OTA
         run: |
             sudo apt install -y git img2simg jq sudo wget xz-utils
@@ -65,9 +50,15 @@ jobs:
             echo Build Complete!
       - uses: actions/upload-artifact@v2
         with:
-           name: boot.img
-           path: out/boot.img
-      
+           name: ramdisk.img
+           path: out/ramdisk.img
+
+      - run: echo Upload kernel.img...
+      - uses: actions/upload-artifact@v2
+        with:
+           name: kernel.img
+           path: out/kernel.img
+
       - run: echo Upload system.img...
       - uses: actions/upload-artifact@v2
         with:

@@ -5,8 +5,12 @@ output=$(realpath $2)
 dir=$(realpath $3)
 
 echo "Working on device: $device"
-if [ ! -f "$dir/partitions/boot.img" ]; then
-    echo "boot.img does not exist!"
+if [ ! -f "$dir/partitions/kernel.img" ]; then
+    echo "kernel.img does not exist!"
+exit 1; fi
+
+if [! -f "$dir/partitions/ramdisk.img" ]; then
+    echo "ramdisk.img does not exist!"
 exit 1; fi
 
 if [ ! -f "$dir/partitions/dtbo.img" ]; then

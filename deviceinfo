@@ -1,21 +1,26 @@
 deviceinfo_name="Honor 7A Pro"
 deviceinfo_manufacturer="Huawei"
-deviceinfo_codename="msm8937_64"
+deviceinfo_codename="hw8937"
 deviceinfo_arch="aarch64"
 deviceinfo_os_version="8.0.0"
 deviceinfo_os_patch_level="2019-11"
+
 deviceinfo_kernel_source="https://github.com/Honor-MSM8937/kernel_huawei_msm8937"
 deviceinfo_kernel_source_branch="halium-9.0"
 deviceinfo_kernel_defconfig="halium_msm8937_defconfig"
-
 deviceinfo_kernel_cmdline="androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci slub_min_objects=12 unmovable_isolate1=2:192M,3:224M,4:256M unmovable_isolate2=2:64M,3:80M,4:80M androidboot.selinux=enforcing androidboot.selinux=enforcing buildvariant=user"
+
 deviceinfo_kernel_apply_overlay="false"
 #deviceinfo_kernel_dtb_overlay="sm8150-mtp-overlay"
 deviceinfo_generate_bootimg="true"
 deviceinfo_bootimg_qcdt="false"
-deviceinfo_flash_offset_base="0x00000000"
+
+deviceinfo_flash_offset_base="0x80000000"
 deviceinfo_flash_offset_kernel="0x00008000"
-deviceinfo_flash_offset_ramdisk="0x01000000"
+deviceinfo_flash_offset_ramdisk="0x02000000"
 deviceinfo_flash_offset_second="0x00f00000"
 deviceinfo_flash_offset_tags="0x00000100"
-deviceinfo_flash_pagesize="4096"
+
+deviceinfo_ramdisk_dummy_kernel="device-additional/Image.gz"
+
+deviceinfo_flash_pagesize="2048"

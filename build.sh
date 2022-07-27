@@ -83,9 +83,10 @@ else
     "$SCRIPT/build-kernel.sh" "${TMPDOWN}" "${TMP}/system"
 fi
 
-"$SCRIPT/make-bootimage.sh" "${TMPDOWN}/KERNEL_OBJ" "${TMPDOWN}/halium-boot-ramdisk.img" "${TMP}/partitions/boot.img"
+"$SCRIPT/make-bootimage.sh" "${TMPDOWN}/KERNEL_OBJ" "${TMPDOWN}/halium-boot-ramdisk.img" "${TMP}/partitions/ramdisk.img" "${TMP}/partitions/kernel.img"
 
-cp "${TMP}/partitions/boot.img" "${OUT}"
+cp "${TMP}/partitions/ramdisk.img" "${OUT}"
+cp "${TMP}/partitions/kernel.img" "${OUT}"
 
 cp -av overlay/* "${TMP}/"
 "$SCRIPT/build-tarball-mainline.sh" "${deviceinfo_codename}" "${OUT}" "${TMP}"
